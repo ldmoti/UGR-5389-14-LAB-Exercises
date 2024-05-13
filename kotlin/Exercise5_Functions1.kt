@@ -2,15 +2,15 @@ fun analyzeString(text: String): Triple<Int, Int, Int> {
     var wordCount = 0
     var uppercaseCount = 0
     var vowelCount = 0
-
     var isInsideWord = false
+
     for (char in text) {
         if (char.isLetterOrDigit()) {
             isInsideWord = true
             if (char.isUpperCase()) {
                 uppercaseCount++
             }
-            if (char.toLowerCase() in "aeiou") {
+            if (char.lowercaseChar() in "aeiou") {
                 vowelCount++
             }
         } else {
@@ -21,7 +21,7 @@ fun analyzeString(text: String): Triple<Int, Int, Int> {
         }
     }
 
-    if (isInsideWord) {
+    if (isInsideWord) { 
         wordCount++
     }
 
@@ -31,9 +31,7 @@ fun analyzeString(text: String): Triple<Int, Int, Int> {
 fun main() {
     println("Enter a string:")
     val inputString = readLine() ?: ""
-
     val (words, uppercase, vowels) = analyzeString(inputString)
-
     println("Word count: $words")
     println("Uppercase letters: $uppercase")
     println("Vowels: $vowels")
