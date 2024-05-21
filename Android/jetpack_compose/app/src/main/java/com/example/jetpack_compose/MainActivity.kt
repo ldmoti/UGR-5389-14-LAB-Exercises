@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
@@ -39,12 +40,16 @@ fun CounterApp() {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Button(onClick = { count++ }) {
-                Text("Increment")
+            Button(onClick = { count++ }, colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Green
+            )) {
+                Text("Increase")
             }
 
-            Button(onClick = { count-- }) {
-                Text("Decrement")
+            Button(onClick = { count-- }, colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Red
+            )) {
+                Text("Decrease")
             }
         }
 
